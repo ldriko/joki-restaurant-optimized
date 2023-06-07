@@ -1,15 +1,9 @@
-import 'regenerator-runtime'; /* for async await transpile */
+import './vendor.js';
 import '../styles/main.css';
 
-import { initializeNavBar } from './appbar';
-import { initializeRestaurantList } from './restaurant-list';
-import { initializeSkipButton } from './skip';
-
-if (navigator.serviceWorker) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js');
-  });
-}
+import { initializeNavBar } from './appbar.js';
+import { initializeRestaurantList } from './restaurant-list.js';
+import { initializeSkipButton } from './skip.js';
 
 initializeNavBar('navbar');
 initializeRestaurantList('#restaurantList');

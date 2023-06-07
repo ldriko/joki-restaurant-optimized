@@ -1,8 +1,12 @@
-const { merge } = require('webpack-merge');
-const path = require('path');
-const common = require('./webpack.common');
+import path from 'path';
+import { merge } from 'webpack-merge';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import common from './webpack.common.js';
+import * as url from 'url';
 
-module.exports = merge(common, {
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+export default merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -16,5 +20,6 @@ module.exports = merge(common, {
       }
     },
     compress: true
-  }
+  },
+  plugins: [new BundleAnalyzerPlugin()]
 });

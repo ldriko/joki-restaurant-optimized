@@ -1,11 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
+import * as url from 'url';
 
-module.exports = {
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+export default {
   entry: {
-    app: path.resolve(__dirname, 'src/scripts/index.js')
+    app: path.resolve(__dirname, 'src/scripts/index.js'),
+    vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
   output: {
     filename: '[name].bundle.js',
