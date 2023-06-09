@@ -16,6 +16,9 @@ npm run start-dev
 
 ## Run unit & integration tests
 
+Jalankan dev server terlebih dahulu untuk memulai
+end-to-end testco
+
 ```
 npm run test
 npm run test:e2e
