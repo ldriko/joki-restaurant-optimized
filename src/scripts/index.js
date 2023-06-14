@@ -7,4 +7,4 @@ import { initializeSkipButton } from './skip.js';
 
 initializeNavBar('navbar');
 initializeRestaurantList('#restaurantList');
-initializeSkipButton('#skipButton', '#listSection');
+initializeSkipButton('#skipButton');
