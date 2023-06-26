@@ -1,41 +1,45 @@
 import puppeteer from 'puppeteer';
 
-describe('like', () => {
+describe('favorite', () => {
   let browser;
   let page;
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      headless: 'new'
+      headless: 'new',
     });
     page = await browser.newPage();
     await page.goto('http://localhost:9000');
   }, 60 * 1000);
 
-  it('can like', async () => {
+  it('can favorite', async () => {
     const element = await page.waitForSelector(
-      '#restaurantList li button.btn.btn-secondary'
+      '#restaurantList li button.btn.btn-secondary',
     );
     await element.click();
-    await page.waitForSelector('#restaurantList li button.btn.btn-primary');
-    const text = await page.$eval(
-      '#restaurantList li button.btn.btn-primary',
-      (e) => e.innerHTML
+    await page.waitForSelector(
+      '#restaurantList li button.btn.btn-primary.btn-favorite',
     );
-    expect(text).toContain('Disukai ♥');
+    const text = await page.$eval(
+      '#restaurantList li button.btn.btn-primary.btn-favorite',
+      (e) => e.innerHTML,
+    );
+    expect(text).toContain('Favorit ♥');
   });
 
   it('can unlike', async () => {
     const element = await page.waitForSelector(
-      '#restaurantList li button.btn.btn-primary'
+      '#restaurantList li button.btn.btn-primary',
     );
     await element.click();
-    await page.waitForSelector('#restaurantList li button.btn.btn-secondary');
-    const text = await page.$eval(
-      '#restaurantList li button.btn.btn-secondary',
-      (e) => e.innerHTML
+    await page.waitForSelector(
+      '#restaurantList li button.btn.btn-secondary.btn-favorite',
     );
-    expect(text).toContain('Suka');
+    const text = await page.$eval(
+      '#restaurantList li button.btn.btn-secondary.btn-favorite',
+      (e) => e.innerHTML,
+    );
+    expect(text).toContain('Tambahkan Favorit');
   });
 
   afterAll(() => browser.close());

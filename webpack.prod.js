@@ -1,5 +1,6 @@
-import common from './webpack.common.js';
 import { merge } from 'webpack-merge';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
+import common from './webpack.common.js';
 
 export default merge(common, {
   mode: 'production',
@@ -13,11 +14,17 @@ export default merge(common, {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
-      }
-    ]
-  }
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+  ],
 });
