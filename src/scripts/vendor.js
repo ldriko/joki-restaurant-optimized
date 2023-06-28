@@ -1,6 +1,4 @@
-const prod = process.env.NODE_ENV === 'production';
-
-if (navigator.serviceWorker && prod) {
+if (navigator.serviceWorker) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js');
   });

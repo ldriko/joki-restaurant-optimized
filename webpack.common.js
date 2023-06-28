@@ -60,5 +60,9 @@ export default {
         },
       ],
     }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
 };

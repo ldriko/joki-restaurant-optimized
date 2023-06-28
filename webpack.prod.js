@@ -1,5 +1,4 @@
 import { merge } from 'webpack-merge';
-import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 import common from './webpack.common.js';
 
 export default merge(common, {
@@ -21,10 +20,4 @@ export default merge(common, {
       },
     ],
   },
-  plugins: [
-    new WorkboxWebpackPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-    }),
-  ],
 });
