@@ -1,6 +1,5 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import * as url from 'url';
 import common from './webpack.common.js';
 
@@ -21,5 +20,4 @@ export default merge(common, {
     },
     compress: true,
   },
-  plugins: [new BundleAnalyzerPlugin()],
 });
