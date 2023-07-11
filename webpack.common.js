@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 import * as url from 'url';
 
 const dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -87,5 +88,9 @@ export default {
       ],
     }),
     new BundleAnalyzerPlugin(),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
 };
