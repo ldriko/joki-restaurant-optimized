@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   initializeDatabase,
   findFavoriteIndex,
@@ -60,24 +61,19 @@ const postReview = async (id) => {
   const name = document.querySelector('#reviewName').value;
   const review = document.querySelector('#reviewText').value;
 
-  const result = await fetch('https://restaurant-api.dicoding.dev/review', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
+  const result = await axios
+    .post('https://restaurant-api.dicoding.dev/review', {
       id,
       name,
       review,
-    }),
-  }).then((response) => response.json());
+    })
+    .catch(() => ({}));
 
-  if (!result || result.error) {
+  if (!result.data || result.data.error) {
     return;
   }
 
-  const { customerReviews } = result;
-  renderCustomerReviews(customerReviews);
+  renderCustomerReviews(result.data.customerReviews);
 };
 
 const renderMenu = (id, menus) => {
@@ -130,15 +126,13 @@ const renderRestaurantDetail = (restaurant) => {
 };
 
 const getRestaurantDetail = async (id) => {
-  const result = await fetch(
+  const result = await axios.get(
     `https://restaurant-api.dicoding.dev/detail/${id}`,
-  ).then((response) => response.json());
+  );
 
-  if (!result || result.error) {
-    return;
-  }
+  if (!result.data || result.data.error) return;
 
-  const { restaurant } = result;
+  const { restaurant } = result.data;
   renderRestaurantDetail(restaurant);
   return restaurant;
 };

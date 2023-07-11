@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   initializeDatabase,
   findFavoriteIndex,
@@ -34,15 +35,13 @@ const handleFavorite = (restaurant) => {
   };
 };
 
-const handleOpen = (id) => {
-  window.location.href = `/detail.html?id=${id}`;
-};
+const handleOpen = (id) => (window.location.href = `/detail.html?id=${id}`);
 
 const fetchRestaurants = async () => {
-  const result = await fetch('https://restaurant-api.dicoding.dev/list').then(
-    (response) => response.json(),
-  );
-  return result.restaurants;
+  const result = await axios
+    .get('https://restaurant-api.dicoding.dev/list')
+    .catch(() => []);
+  return result.data.restaurants;
 };
 
 const renderRestaurantList = (restaurantListElement, restaurants) => {
@@ -114,6 +113,7 @@ const initializeRestaurantList = async (id) => {
   const restaurantListElement = document.querySelector(id);
   if (!restaurantListElement) return;
   const restaurants = await fetchRestaurants();
+  // console.log(restaurants);
   renderRestaurantList(restaurantListElement, restaurants);
 };
 

@@ -20,4 +20,10 @@ export default merge(common, {
       },
     ],
   },
+  plugins: [
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+  ],
 });
