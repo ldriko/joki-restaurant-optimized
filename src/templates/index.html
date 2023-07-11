@@ -63,16 +63,11 @@
         </p>
         <button class="btn btn-primary">Mulai</button>
       </div>
-      <img
-        srcset="
-          ./images/heros/hero-480.webp 3x,
-          ./images/heros/hero-720.webp 2x,
-          ./images/heros/hero-900.webp 1x
-        "
-        src="./images/heros/hero-480.webp"
-        alt="Hero Image"
-        class="hero-image"
-      />
+      <picture class="hero-image">
+        <source media="(max-width: 600px)" srcset="./images/hero-480.webp" />
+        <source media="(max-width: 866px)" srcset="./images/hero-720.webp" />
+        <img src="./images/hero-900.webp" alt="Hero Image" />
+      </picture>
     </div>
     <section id="mainContent" class="scroll-margin section-list">
       <div class="container">

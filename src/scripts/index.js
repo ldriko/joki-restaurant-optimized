@@ -1,3 +1,5 @@
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit.js';
 import './vendor.js';
 import '../styles/main.css';
 

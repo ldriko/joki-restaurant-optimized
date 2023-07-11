@@ -53,9 +53,12 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
 
     const cardImage = document.createElement('img');
     cardImage.classList.add('restaurant-card-image');
-    cardImage.src = `https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}`;
     cardImage.alt = restaurant.name;
-    cardImage.setAttribute('loading', 'lazy');
+    cardImage.classList.add('lazyload');
+    cardImage.setAttribute(
+      'data-src',
+      `https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}`,
+    );
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('restaurant-card-body');

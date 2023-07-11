@@ -7,7 +7,6 @@ import {
   initializeDatabase,
   clearFavorite,
 } from './favorite.js';
-import { async } from 'regenerator-runtime';
 
 test('should return empty liked restaurant list', async () => {
   await new Promise((resolve) => {
