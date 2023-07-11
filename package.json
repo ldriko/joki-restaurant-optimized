@@ -9,7 +9,7 @@
     "build": "webpack --config webpack.prod.js",
     "build-image": "node src/scripts/sharp.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathIgnorePatterns=.*e2e.test.js",
-    "test:e2e": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=.*e2e.test.js$"
+    "e2e": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=.*e2e.test.js$"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",

@@ -6,7 +6,7 @@ describe('favorite', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      headless: 'new',
+      headless: false,
     });
     page = await browser.newPage();
     await page.goto('http://localhost:9000');
@@ -27,7 +27,7 @@ describe('favorite', () => {
     expect(text).toContain('Favorit ♥');
   });
 
-  it('can unlike', async () => {
+  it('can unfavorite', async () => {
     const element = await page.waitForSelector(
       '#restaurantList li button.btn.btn-primary',
     );
