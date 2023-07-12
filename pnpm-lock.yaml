@@ -82,9 +82,15 @@ devDependencies:
   karma-jasmine:
     specifier: ^4.0.2
     version: 4.0.2(karma@5.2.3)
+  karma-jasmine-html-reporter:
+    specifier: ^2.1.0
+    version: 2.1.0(jasmine-core@4.2.0)(karma-jasmine@4.0.2)(karma@5.2.3)
   karma-sourcemap-loader:
     specifier: ^0.3.8
     version: 0.3.8
+  karma-spec-reporter:
+    specifier: ^0.0.36
+    version: 0.0.36(karma@5.2.3)
   karma-webpack:
     specifier: ^5.0.0
     version: 5.0.0(webpack@5.73.0)
@@ -5498,6 +5504,18 @@ packages:
       which: 2.0.2
     dev: true
 
+  /karma-jasmine-html-reporter@2.1.0(jasmine-core@4.2.0)(karma-jasmine@4.0.2)(karma@5.2.3):
+    resolution: {integrity: sha512-sPQE1+nlsn6Hwb5t+HHwyy0A1FNCVKuL1192b+XNauMYWThz2kweiBVW1DqloRpVvZIJkIoHVB7XRpK78n1xbQ==}
+    peerDependencies:
+      jasmine-core: ^4.0.0 || ^5.0.0
+      karma: ^6.0.0
+      karma-jasmine: ^5.0.0
+    dependencies:
+      jasmine-core: 4.2.0
+      karma: 5.2.3
+      karma-jasmine: 4.0.2(karma@5.2.3)
+    dev: true
+
   /karma-jasmine@4.0.2(karma@5.2.3):
     resolution: {integrity: sha512-ggi84RMNQffSDmWSyyt4zxzh2CQGwsxvYYsprgyR1j8ikzIduEdOlcLvXjZGwXG/0j41KUXOWsUCBfbEHPWP9g==}
     engines: {node: '>= 10'}
@@ -5512,6 +5530,15 @@ packages:
     resolution: {integrity: sha512-zorxyAakYZuBcHRJE+vbrK2o2JXLFWK8VVjiT/6P+ltLBUGUvqTEkUiQ119MGdOrK7mrmxXHZF1/pfT6GgIZ6g==}
     dependencies:
       graceful-fs: 4.2.11
+    dev: true
+
+  /karma-spec-reporter@0.0.36(karma@5.2.3):
+    resolution: {integrity: sha512-11bvOl1x6ryKZph7kmbmMpbi8vsngEGxGOoeTlIcDaH3ab3j8aPJnZ+r+K/SS0sBSGy5VGkGYO2+hLct7hw/6w==}
+    peerDependencies:
+      karma: '>=0.9'
+    dependencies:
+      colors: 1.4.0
+      karma: 5.2.3
     dev: true
 
   /karma-webpack@5.0.0(webpack@5.73.0):
