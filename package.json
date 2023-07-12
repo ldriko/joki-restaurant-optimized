@@ -8,9 +8,9 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "build-image": "node src/scripts/sharp.js",
-    "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathIgnorePatterns=.*e2e.test.js",
     "test": "karma start karma.conf.cjs",
-    "e2e": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=.*e2e.test.js$"
+    "e22e": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=.*e2e.test.js$",
+    "e2e": "codeceptjs run -c codecept.conf.cjs"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "chai": "^4.3.7",
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.0",
     "lazysizes": "^5.3.2",

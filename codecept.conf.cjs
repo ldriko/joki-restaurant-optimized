@@ -1,10 +1,10 @@
-import { setHeadlessWhen, setCommonPlugins } from '@codeceptjs/configure';
+const { setHeadlessWhen, setCommonPlugins } = require('@codeceptjs/configure');
 
 setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
-export const config = {
-  tests: 'src/e2e/**/*.spec.ts',
+module.exports.config = {
+  tests: 'src/e2e/**/*.spec.cjs',
   output: 'src/e2e/outputs',
   helpers: {
     Puppeteer: {
@@ -13,8 +13,8 @@ export const config = {
       windowSize: 'y',
     },
   },
-  include: {
-    I: './steps_file.ts',
-  },
+  // include: {
+  //   I: './steps_file.ts',
+  // },
   name: 'joki-restaurant-optimized',
 };
